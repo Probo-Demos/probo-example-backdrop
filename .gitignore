@@ -1,8 +1,8 @@
 # Ignore this file so it can be changed 
-#.gitignore
+# .gitignore
 
 # Ignore configuration files that may contain sensitive information.
-docroot/settings*.php
+# docroot/settings*.php
 docroot/sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
