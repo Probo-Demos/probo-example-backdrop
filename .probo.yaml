@@ -1,0 +1,7 @@
+steps:
+  - name: Install Backdrop
+    plugin: Drupal
+    runInstall: true
+    profileName: standard
+    clearCaches: false
+    subDirectory: docroot
