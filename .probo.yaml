@@ -1,0 +1,14 @@
+type: lamp
+php: 8.4
+database: mariadb:11.4
+assets:
+  - backdrop.sql.gz
+
+steps:
+  - name: Setup Backdrop CMS
+    plugin: Backdrop
+    subDirectory: docroot
+    database: backdrop.sql.gz
+    databaseGzipped: true
+    activeConfigSyncDirectory: ../config/active
+    stagingConfigSyncDirectory: ../config/staging

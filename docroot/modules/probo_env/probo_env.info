@@ -1,0 +1,5 @@
+type = module
+name = Probo Environment
+description = Displays the Probo CI build environment variables exposed to PHP. Intended to be used as the site front page.
+package = Probo
+backdrop = 1.x
