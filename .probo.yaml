@@ -1,6 +1,4 @@
-type: lamp
-php: 8.4
-database: mariadb:11.4
+image: proboci/ubuntu:22.04-php8.4
 assets:
   - backdrop.sql.gz
 
