@@ -1,12 +1,29 @@
-image: proboci/ubuntu:22.04-php8.4
+# Probo CI build configuration for the Backdrop CMS example.
+
+# Use the LAMP stack container (Apache + PHP + MariaDB) with PHP 8.4.
+type: lamp
+php: 8.4
+database: mariadb:11.4
+
+# The sample database can be obtained at:
+# https://probosupportfiles.blob.core.windows.net/utils/backdrop.sql.gz
 assets:
   - backdrop.sql.gz
 
 steps:
+  # The built-in Backdrop plugin: symlinks the docroot to /var/www/html,
+  # imports the database, installs the `bee` CLI, and appends the database
+  # credentials, config directories, trusted host patterns, and a hash salt
+  # to settings.php before starting Apache/PHP.
   - name: Setup Backdrop CMS
     plugin: Backdrop
+    # The web root is the docroot/ subdirectory of this repo, not its top level.
     subDirectory: docroot
+    # Database dump to import (from assets above); it's gzipped, so tell the
+    # plugin to gunzip it before importing.
     database: backdrop.sql.gz
     databaseGzipped: true
+    # Backdrop config sync directories, relative to the docroot — these point
+    # at the config/ directory that lives beside it in the repo.
     activeConfigSyncDirectory: ../config/active
     stagingConfigSyncDirectory: ../config/staging
