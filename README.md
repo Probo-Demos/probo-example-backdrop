@@ -70,15 +70,3 @@ steps:
     activeConfigSyncDirectory: ../config/active
     stagingConfigSyncDirectory: ../config/staging
 ```
-
-The Backdrop plugin symlinks the `docroot/` subdirectory to `/var/www/html`,
-imports the gzipped database, and installs Backdrop's
-[`bee`](https://github.com/backdrop-contrib/bee) command-line utility for the
-remaining provisioning steps. It then appends the database credentials, trusted
-host patterns, a random hash salt, and the active/staging config directory
-paths (pointing at [`config/`](config/), which lives beside the docroot) to
-`settings.php`, and starts Apache/PHP; nginx reverse-proxies `*.probo.build` to
-it. Because the module ships in the codebase and is enabled in the example
-database, `/probo-env` is live in every build — standard Probo build variables
-populate the first table and any injected secrets or custom variables appear in
-the second.
